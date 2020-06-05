@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import styled from "styled-components"
-import Card from "../components/Card"
+import Game from "../components/Game"
 import Searchbar from "../components/Searchbar"
 import Loader from "../components/Loader"
 
@@ -43,7 +43,7 @@ const Search = props => {
             ) : (
                 <Grid>
                     {searchedGames.games.map(game => (
-                        <Card game={game} key={game._id} searchedGames />
+                        <Game game={game} key={game._id} searchedGames />
                     ))}
                 </Grid>
             )}

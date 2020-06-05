@@ -60,7 +60,7 @@ export default createGlobalStyle`
       font-family: 'Nunito', sans-serif;
       font-weight: 400;
       line-height: 1.6;
-      background: ${props => props.theme.colors.bg};
+      background: rgba(0,0,0,0.04);
       overflow-x: hidden;
     }
 

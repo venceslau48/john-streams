@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router-dom"
 import axios from "axios"
 import styled from "styled-components"
-import Card from "../components/Card"
+import Game from "../components/Game"
 import Searchbar from "../components/Searchbar"
 
 const Container = styled.div``
@@ -39,7 +39,7 @@ const Home = () => {
             <Searchbar onSubmit={onSubmit} value={search} onChange={e => setSearch(e.target.value)} />
             <Grid>
                 {games.top.map(game => (
-                    <Card game={game} key={game.game._id} topGames />
+                    <Game game={game} key={game.game._id} topGames />
                 ))}
             </Grid>
         </Container>

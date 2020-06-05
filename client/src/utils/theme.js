@@ -6,7 +6,7 @@ const theme = {
         typo_dark: "#5b6f82",
         //background
         bg: "#f6f6f6",
-        bg_light: "#fbfafb",
+        bg_light: "#FAF7FF",
         bg_dark: "#0A101B",
         //primary
         primary: "#DD003F",

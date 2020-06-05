@@ -7,6 +7,7 @@ const app = express()
 
 const gamesRoutes = require("./routes/games")
 const searchRoutes = require("./routes/search")
+const streamsRoutes = require("./routes/streams")
 
 //STATIC FILES (ASSETS)
 // app.use(express.static(path.join(__dirname, "build")))
@@ -21,6 +22,7 @@ app.use(cors())
 //ROUTES
 app.use("/games", gamesRoutes)
 app.use("/search", searchRoutes)
+app.use("/streams", streamsRoutes)
 
 //EXPRESS USING REACT APP BUILD (DEFINE ALWAYS AFTER ENDPOINTS)
 // app.get("*", function (req, res) {
