@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react"
+import { Redirect } from "react-router-dom"
 import axios from "axios"
 import styled from "styled-components"
 import Game from "../components/Game"
 import Searchbar from "../components/Searchbar"
 import Loader from "../components/Loader"
 
-const Container = styled.div``
+const Container = styled.div`
+    grid-column: center-start/center-end;
+    z-index: 10;
+`
 
 const Grid = styled.div`
     display: grid;
@@ -17,6 +21,7 @@ const Search = props => {
     const [searchedGames, setSearchedGames] = useState({ games: [] })
     const [search, setSearch] = useState(props.match.params.game)
     const [loading, setLoading] = useState(true)
+    const [redirect, setRedirect] = useState(false)
 
     useEffect(() => {
         axios.get("/search", { params: { search } }).then(res => {
@@ -29,10 +34,18 @@ const Search = props => {
     const onSubmit = e => {
         e.preventDefault()
 
-        axios.get("/search", { params: { search } }).then(res => {
-            setLoading(false)
-            setSearchedGames({ games: res.data.games })
-        })
+        if (search !== "") {
+            axios.get("/search", { params: { search } }).then(res => {
+                setLoading(false)
+                setSearchedGames({ games: res.data.games })
+            })
+        } else {
+            setRedirect(true)
+        }
+    }
+
+    if (redirect) {
+        return <Redirect to="/" />
     }
 
     return (

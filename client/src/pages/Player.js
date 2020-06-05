@@ -3,7 +3,15 @@ import axios from "axios"
 import styled from "styled-components"
 import Loader from "../components/Loader"
 
-const Container = styled.div``
+const Container = styled.div`
+    grid-column: center-start/center-end;
+    z-index: 10;
+`
+
+const StyledPlayer = styled.div`
+    width: 100%;
+    height: 80vh;
+`
 
 const Player = props => {
     const [stream, setSream] = useState({ stream: {} })
@@ -25,14 +33,16 @@ const Player = props => {
             {loading === true || stream.stream.channel === undefined || stream.stream === null ? (
                 <Loader />
             ) : (
-                <iframe
-                    src={`https://player.twitch.tv/?channel=${stream.stream.channel.display_name}`}
-                    height="400"
-                    width="600"
-                    frameborder
-                    scrolling
-                    allowfullscreen
-                ></iframe>
+                <StyledPlayer>
+                    <iframe
+                        src={`https://player.twitch.tv/?channel=${stream.stream.channel.display_name}`}
+                        height="100%"
+                        width="100%"
+                        frameborder
+                        scrolling
+                        allowfullscreen
+                    ></iframe>
+                </StyledPlayer>
             )}
         </Container>
     )

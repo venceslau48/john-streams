@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
     try {
         request.get(
             {
-                url: `https://api.twitch.tv/kraken/streams?game=${game}`,
+                url: `https://api.twitch.tv/kraken/streams?game=${game}&limit=50`,
                 headers: {
                     "content-type": "application/json",
                     Accept: "application/vnd.twitchtv.v5+json",

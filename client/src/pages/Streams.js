@@ -3,11 +3,14 @@ import axios from "axios"
 import styled from "styled-components"
 import Game from "../components/Game"
 
-const Container = styled.div``
+const Container = styled.div`
+    grid-column: center-start/center-end;
+    z-index: 10;
+`
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
     gap: 2rem;
 `
 
