@@ -9,13 +9,8 @@ const theme = {
         bg_light: "#FAF7FF",
         bg_dark: "#0A101B",
         //primary
-        primary: "#DD003F",
-        primary_light: "#FF7F8D",
-        primary_dark: "#B60025",
-        //others
-        success: "#28b859",
-        error: "#ff6b76",
-        warning: "#fabd42"
+        primary: "#3ABDC5",
+        secondary: "#D97D6E"
     },
     bp: {
         smallest: "only screen and (max-width: 43.75em)",

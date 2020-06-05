@@ -10,6 +10,21 @@ const Container = styled.div`
     z-index: 10;
 `
 
+const FlexContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 6rem;
+`
+
+const Titulo = styled.h2`
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0.3;
+    color: var(--color-typo);
+`
+
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
@@ -39,7 +54,10 @@ const Home = () => {
 
     return (
         <Container>
-            <Searchbar onSubmit={onSubmit} value={search} onChange={e => setSearch(e.target.value)} />
+            <FlexContainer>
+                <Titulo>Top 50 games</Titulo>
+                <Searchbar onSubmit={onSubmit} value={search} onChange={e => setSearch(e.target.value)} />
+            </FlexContainer>
             <Grid>
                 {games.top.map(game => (
                     <Game game={game} key={game.game._id} topGames />

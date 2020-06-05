@@ -1,7 +1,8 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Switch, Route } from "react-router-dom"
 import styled from "styled-components"
 
+import Navigation from "./components/Navbar"
 import Home from "./pages/Home"
 import Streams from "./pages/Streams"
 import Player from "./pages/Player"
@@ -16,7 +17,7 @@ const Container = styled.div`
         [center-start] repeat(6, [col-start] minmax(min-content, 19rem) [col-end]) [center-end]
         minmax(6rem, 1fr) [full-end];
 
-    &:before {
+    /* &:before {
         content: "";
         position: absolute;
         background-image: url(${image});
@@ -26,19 +27,22 @@ const Container = styled.div`
         width: 100%;
         height: 100%;
         transform: rotate(180deg);
-    }
+    } */
 `
 
 const App = () => {
     return (
-        <Container>
-            <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/streams/:game" component={Streams} />
-                <Route path="/:channel" exact component={Player} />
-                <Route path="/search/:game" component={Search} />
-            </Switch>
-        </Container>
+        <Fragment>
+            <Navigation />
+            <Container>
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/streams/:game" component={Streams} />
+                    <Route path="/:channel" exact component={Player} />
+                    <Route path="/search/:game" component={Search} />
+                </Switch>
+            </Container>
+        </Fragment>
     )
 }
 

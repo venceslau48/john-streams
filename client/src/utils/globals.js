@@ -28,14 +28,7 @@ export default createGlobalStyle`
       --color-bg-light: ${props => props.theme.colors.bg_light};
       --color-bg-dark: ${props => props.theme.colors.bg_dark};
       --color-primary: ${props => props.theme.colors.primary};
-      --color-primary-light: ${props => props.theme.colors.primary_light};
-      --color-primary-dark: ${props => props.theme.colors.primary_dark};
       --color-secondary: ${props => props.theme.colors.secondary};
-      --color-secondary-light: ${props => props.theme.colors.secondary_light};
-      --color-secondary-dark: ${props => props.theme.colors.secondary_dark};
-      --color-success: ${props => props.theme.colors.success};
-      --color-error: ${props => props.theme.colors.error};
-      --color-warning: ${props => props.theme.colors.warning};
       --shadow-light: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
       --shadow-dark: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.25);
 
