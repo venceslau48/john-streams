@@ -1,37 +1,43 @@
 import React, { useState, useEffect } from "react"
+import { Redirect } from "react-router-dom"
 import axios from "axios"
-import styled from "styled-components"
 import Game from "../components/Game"
-
-const Container = styled.div`
-    grid-column: center-start/center-end;
-    z-index: 10;
-`
-
-const Grid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-    gap: 2rem;
-`
+import Layout from "../components/Layout"
 
 const Streams = props => {
     const [games, setGames] = useState({ streams: [] })
+    const [search, setSearch] = useState("")
+    const [redirect, setRedirect] = useState(false)
 
     useEffect(() => {
         axios.get("/streams", { params: { game: props.match.params.game } }).then(res => {
             setGames({ streams: res.data.streams })
-            console.log(res.data)
         })
     }, [])
 
+    const onSubmit = e => {
+        e.preventDefault()
+
+        setRedirect(true)
+    }
+
+    if (redirect) {
+        return <Redirect to={`/search/streams/${search}`} />
+    }
+
     return (
-        <Container>
-            <Grid>
-                {games.streams.map(game => (
-                    <Game game={game} key={game.game._id} streams />
-                ))}
-            </Grid>
-        </Container>
+        <Layout
+            titulo="Top 50 streams"
+            onSubmit={onSubmit}
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Search streams"
+            width="30rem"
+        >
+            {games.streams.map(game => (
+                <Game game={game} key={game.game._id} streams />
+            ))}
+        </Layout>
     )
 }
 

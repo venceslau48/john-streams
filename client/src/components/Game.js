@@ -62,7 +62,7 @@ const Game = ({ game, topGames, searchedGames, streams }) => {
                     <Poster src={game.box.large} />
                     <Info>
                         <Name>{game.name}</Name>
-                        <Viewers>{game.viewers} viewers</Viewers>
+                        {/* <Viewers>{game.viewers} viewers</Viewers> */}
                     </Info>
                 </StyledLink>
             )}
@@ -74,13 +74,6 @@ const Game = ({ game, topGames, searchedGames, streams }) => {
                         <Viewers>{game.viewers} viewers</Viewers>
                     </Info>
                 </StyledLink>
-                //      <a href={`${game.channel.url}`} target="_blank">
-                //      <Poster src={game.preview.large} />
-                //      <Info>
-                //          <Name>{game.channel.display_name}</Name>
-                //          <Viewers>{game.viewers} viewers</Viewers>
-                //      </Info>
-                //  </a>
             )}
         </Container>
     )

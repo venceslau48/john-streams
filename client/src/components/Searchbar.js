@@ -9,9 +9,15 @@ const Input = styled.input`
     width: 50rem;
     border-radius: 0;
     border: none;
-    border-bottom: 2px solid #bbb;
+    /* border-bottom: 2px solid #bbb; */
+    border-bottom: 2px solid #ddd;
     background: transparent;
-    color: #212121;
+    /* color: #212121; */
+    color: #eee;
+
+    &::placeholder {
+        color: #ddd;
+    }
 
     &:visited,
     &:focus {
@@ -19,10 +25,10 @@ const Input = styled.input`
     }
 `
 
-const Searchbar = ({ onSubmit, value, onChange }) => {
+const Searchbar = ({ onSubmit, value, onChange, placeholder }) => {
     return (
         <Form onSubmit={onSubmit}>
-            <Input type="text" value={value} onChange={onChange} placeholder="Search games" />
+            <Input type="text" value={value} onChange={onChange} placeholder={placeholder} />
         </Form>
     )
 }

@@ -11,6 +11,7 @@ const Container = styled.div`
 const StyledPlayer = styled.div`
     width: 100%;
     height: 80vh;
+    display: flex;
 `
 
 const Player = props => {
@@ -38,9 +39,13 @@ const Player = props => {
                         src={`https://player.twitch.tv/?channel=${stream.stream.channel.display_name}`}
                         height="100%"
                         width="100%"
-                        frameborder
-                        scrolling
-                        allowfullscreen
+                        frameBorder="0"
+                    ></iframe>
+                    <iframe
+                        src={`https://www.twitch.tv/embed/hebo/chat?parent=${stream.stream.channel.display_name}`}
+                        height="100%"
+                        width="350"
+                        frameBorder="0"
                     ></iframe>
                 </StyledPlayer>
             )}

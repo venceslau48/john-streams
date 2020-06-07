@@ -1,26 +1,17 @@
-const theme = {
-    colors: {
-        //font
-        typo: "#202b36",
-        typo_light: "#92a2b1",
-        typo_dark: "#5b6f82",
-        //background
-        bg: "#f6f6f6",
-        bg_light: "#FAF7FF",
-        bg_dark: "#0A101B",
-        //primary
-        primary: "#3ABDC5",
-        secondary: "#D97D6E"
-    },
-    bp: {
-        smallest: "only screen and (max-width: 43.75em)",
-        smaller: "only screen and (max-width: 56.25em)",
-        small: "only screen and (max-width: 62.5em)",
-        medium: "only screen and (max-width: 68.75em)",
-        large: "only screen and (max-width: 71.87em)",
-        larger: "only screen and (max-width: 75em)",
-        largest: "only screen and (min-width: 112.5em)"
-    }
+export const lightTheme = {
+    typo: "#202b36",
+    typo_light: "#92a2b1",
+    typo_dark: "#5b6f82",
+    bg: "#f6f6f6",
+    primary: "#9416F6",
+    secondary: "#0099FF"
 }
 
-export default theme
+export const darkTheme = {
+    typo: "#eee",
+    typo_light: "#fff",
+    typo_dark: "#ddd",
+    bg: "#0A101B",
+    primary: "#9416F6",
+    secondary: "#0099FF"
+}

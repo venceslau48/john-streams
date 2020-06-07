@@ -3,58 +3,35 @@ import { Redirect } from "react-router-dom"
 import axios from "axios"
 import styled from "styled-components"
 import Game from "../components/Game"
-import Searchbar from "../components/Searchbar"
 import Loader from "../components/Loader"
-
-const Container = styled.div`
-    grid-column: center-start/center-end;
-    z-index: 10;
-`
-
-const FlexContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 6rem;
-`
-
-const Titulo = styled.h2`
-    font-size: 3rem;
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: 0.3;
-    color: var(--color-typo);
-`
+import Layout from "../components/Layout"
 
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
 `
 
-const Search = props => {
+const SearchGames = props => {
     const [searchedGames, setSearchedGames] = useState({ games: [] })
     const [search, setSearch] = useState(props.match.params.game)
     const [loading, setLoading] = useState(true)
     const [redirect, setRedirect] = useState(false)
 
     useEffect(() => {
-        axios.get("/search", { params: { search } }).then(res => {
+        axios.get("/search/games", { params: { search } }).then(res => {
             setLoading(false)
             setSearchedGames({ games: res.data.games })
-            console.log("ao entrar", res.data)
         })
-        // }, [searchedGames])
     }, [])
 
     const onSubmit = e => {
         e.preventDefault()
 
         if (search !== "") {
-            axios.get("/search", { params: { search } }).then(res => {
+            axios.get("/search/games", { params: { search } }).then(res => {
                 setLoading(false)
                 setSearchedGames({ games: res.data.games })
-                console.log("ao clicar", res.data)
             })
         } else {
             setRedirect(true)
@@ -66,11 +43,14 @@ const Search = props => {
     }
 
     return (
-        <Container>
-            <FlexContainer>
-                <Titulo>Searched for {props.match.params.game}</Titulo>
-                <Searchbar onSubmit={onSubmit} value={search} onChange={e => setSearch(e.target.value)} />
-            </FlexContainer>
+        <Layout
+            titulo={`Searched for ${props.match.params.game}`}
+            onSubmit={onSubmit}
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Search games"
+            searchPage={true}
+        >
             {loading === true || searchedGames.games === undefined || searchedGames.games === null ? (
                 <Loader />
             ) : searchedGames.games.length > 0 ? (
@@ -80,10 +60,10 @@ const Search = props => {
                     ))}
                 </Grid>
             ) : (
-                <p>Não existem streams</p>
+                <p>Game not found</p>
             )}
-        </Container>
+        </Layout>
     )
 }
 
-export default Search
+export default SearchGames
