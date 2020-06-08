@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import history from "../history"
 import { Redirect } from "react-router-dom"
 import axios from "axios"
 import styled from "styled-components"
@@ -49,7 +50,8 @@ const SearchGames = props => {
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search games"
-            searchPage={true}
+            goBack={true}
+            onClickGoBack={history.goBack}
         >
             {loading === true || searchedGames.games === undefined || searchedGames.games === null ? (
                 <Loader />

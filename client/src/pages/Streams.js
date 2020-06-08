@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import history from "../history"
 import { Redirect } from "react-router-dom"
 import axios from "axios"
 import Game from "../components/Game"
@@ -33,6 +34,10 @@ const Streams = props => {
             onChange={e => setSearch(e.target.value)}
             placeholder="Search streams"
             width="30rem"
+            grid={true}
+            goBack={true}
+            onClickGoBack={history.goBack}
+            tituloGame={props.match.params.game}
         >
             {games.streams.map(game => (
                 <Game game={game} key={game.game._id} streams />

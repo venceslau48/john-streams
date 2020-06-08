@@ -11,7 +11,6 @@ import Streams from "./pages/Streams"
 import Player from "./pages/Player"
 import SearchGames from "./pages/SearchGames"
 import SearchStreams from "./pages/SearchStreams"
-import image from "./images/wave.svg"
 
 const Container = styled.div`
     display: grid;
@@ -19,19 +18,6 @@ const Container = styled.div`
         [full-start] minmax(6rem, 1fr)
         [center-start] repeat(6, [col-start] minmax(min-content, 19rem) [col-end]) [center-end]
         minmax(6rem, 1fr) [full-end];
-
-    &:before {
-        content: "";
-        position: absolute;
-        background-image: url(${image});
-        background-size: cover;
-        filter: contrast(70%);
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 70%;
-        transform: rotate(180deg);
-    }
 `
 
 const App = () => {

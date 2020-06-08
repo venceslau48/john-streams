@@ -8,7 +8,7 @@ const Navigation = styled.nav`
     display: grid;
     grid-template-columns: inherit;
     align-content: center;
-    background: ${({ theme }) => theme.bg};
+    background: var(--color-bg);
     padding: 1rem 2rem;
     margin-bottom: 6rem;
     box-shadow: var(--shadow-light);

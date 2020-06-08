@@ -6,14 +6,14 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 3px;
-    background-color: #fff;
+    background-color: var(--color-bg);
 `
 
 const StyledLink = styled(Link)`
     transition: all 0.2s;
     box-shadow: var(--shadow-light);
     text-decoration: none;
-    color: inherit;
+    color: var(--color-typo);
     border-radius: 3px;
 
     &:hover {
@@ -30,6 +30,7 @@ const Poster = styled.img`
 const Info = styled.div`
     padding: 1rem;
     border-radius: 0 0 3px 3px;
+    text-align: left;
 `
 
 const Name = styled.h3`

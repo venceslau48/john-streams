@@ -33,6 +33,7 @@ const Home = () => {
             onChange={e => setSearch(e.target.value)}
             placeholder="Search games"
             width="17rem"
+            grid={true}
         >
             {games.top.map(game => (
                 <Game game={game} key={game.game._id} topGames />

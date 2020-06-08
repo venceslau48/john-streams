@@ -9,14 +9,12 @@ const Input = styled.input`
     width: 50rem;
     border-radius: 0;
     border: none;
-    /* border-bottom: 2px solid #bbb; */
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid var(--color-typo-dark);
     background: transparent;
-    /* color: #212121; */
-    color: #eee;
+    color: var(--color-typo);
 
     &::placeholder {
-        color: #ddd;
+        color: var(--color-typo-light);
     }
 
     &:visited,

@@ -27,8 +27,8 @@ export default createGlobalStyle`
       --color-bg: ${({ theme }) => theme.bg};
       --color-primary: ${({ theme }) => theme.primary};
       --color-secondary: ${({ theme }) => theme.secondary};
-      --shadow-light: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
-      --shadow-dark: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.25);
+      --shadow-light: ${({ theme }) => `0 0.3rem 0.5rem ${theme.shadow_light}`};
+      --shadow-dark: ${({ theme }) => `0 0.3rem 0.5rem ${theme.shadow_dark}`};
     }
 
     body {

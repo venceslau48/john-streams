@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react"
+import history from "../history"
 import axios from "axios"
 import styled from "styled-components"
 import Loader from "../components/Loader"
-
-const Container = styled.div`
-    grid-column: center-start/center-end;
-    z-index: 10;
-`
+import Layout from "../components/Layout"
 
 const StyledPlayer = styled.div`
     width: 100%;
     height: 80vh;
-    display: flex;
 `
 
 const Player = props => {
@@ -30,7 +26,16 @@ const Player = props => {
     }, [])
 
     return (
-        <Container>
+        <Layout
+            titulo={
+                stream.stream.channel === undefined || stream.stream.channel === null
+                    ? ""
+                    : stream.stream.channel.display_name
+            }
+            noSearch={true}
+            onClickGoBack={history.goBack}
+            tituloGame={stream.stream.game === undefined ? "" : `Playing ${stream.stream.game}`}
+        >
             {loading === true || stream.stream.channel === undefined || stream.stream === null ? (
                 <Loader />
             ) : (
@@ -41,15 +46,9 @@ const Player = props => {
                         width="100%"
                         frameBorder="0"
                     ></iframe>
-                    <iframe
-                        src={`https://www.twitch.tv/embed/hebo/chat?parent=${stream.stream.channel.display_name}`}
-                        height="100%"
-                        width="350"
-                        frameBorder="0"
-                    ></iframe>
                 </StyledPlayer>
             )}
-        </Container>
+        </Layout>
     )
 }
 
