@@ -30,6 +30,14 @@ export default createGlobalStyle`
       --shadow-light: ${({ theme }) => `0 0.3rem 0.5rem ${theme.shadow_light}`};
       --shadow-dark: ${({ theme }) => `0 0.3rem 0.5rem ${theme.shadow_dark}`};
       --navbar-bg:${({ theme }) => theme.navbar_bg};
+
+      @media (max-width: 56.25em) {
+        font-size: 56.25%;
+      }
+
+      @media (max-width: 37.5em) {
+        font-size: 50%;
+      }
     }
 
     body {

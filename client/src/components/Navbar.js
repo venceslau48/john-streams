@@ -20,6 +20,11 @@ const Brand = styled.h2`
     grid-column: center-start / span 1;
     font-size: 2.4rem;
     color: var(--color-primary);
+    align-self: center;
+
+    @media (max-width: 37.5em) {
+        grid-column: full-start / center-start;
+    }
 `
 
 const NavList = styled.ul`
@@ -29,6 +34,10 @@ const NavList = styled.ul`
     justify-self: end;
     align-self: center;
     list-style: none;
+
+    @media (max-width: 37.5em) {
+        grid-column: center-start / full-end;
+    }
 `
 
 const NavItem = styled.li.attrs({ className: "controlos-dark-mode" })`

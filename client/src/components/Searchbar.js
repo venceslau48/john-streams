@@ -1,7 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 
-const Form = styled.form``
+const Form = styled.form`
+    @media (max-width: 37.5em) {
+        width: 100%;
+        margin-top: 2.5rem;
+    }
+`
 
 const Input = styled.input`
     padding: 0.8rem 1rem;
@@ -12,6 +17,14 @@ const Input = styled.input`
     border-bottom: 1px solid var(--color-typo-dark);
     background: transparent;
     color: var(--color-typo);
+
+    @media (max-width: 56.25em) {
+        width: 30rem;
+    }
+
+    @media (max-width: 37.5em) {
+        width: 100%;
+    }
 
     &::placeholder {
         color: var(--color-typo-light);

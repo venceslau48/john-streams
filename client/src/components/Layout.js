@@ -14,6 +14,18 @@ const FlexContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     margin: 0 0 6rem;
+
+    @media (max-width: 37.5em) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+`
+
+const FlexContainer2 = styled(FlexContainer)`
+    @media (max-width: 37.5em) {
+        flex-direction: row;
+        align-items: center;
+    }
 `
 
 const Titulo = styled.h2`
@@ -22,6 +34,10 @@ const Titulo = styled.h2`
     line-height: 1;
     letter-spacing: 0.3;
     color: var(--color-typo);
+
+    @media (max-width: 56.25em) {
+        font-size: 2.6rem;
+    }
 `
 
 const GameTitle = styled.h4`
@@ -30,6 +46,11 @@ const GameTitle = styled.h4`
     text-align: left;
     transform: translateY(-4rem);
     color: var(--color-primary);
+
+    @media (max-width: 37.5em) {
+        transform: translateY(-1rem);
+        margin-bottom: 3rem;
+    }
 `
 
 const GoBack = styled.button`
@@ -73,19 +94,23 @@ const Layout = props => {
                     Go Back
                 </GoBack>
             )}
-            <FlexContainer>
-                <Titulo>{props.titulo}</Titulo>
-                {props.noSearch ? (
+            {props.noSearch ? (
+                <FlexContainer2>
+                    <Titulo>{props.titulo}</Titulo>
                     <GoBack onClick={props.onClickGoBack}>Go Back</GoBack>
-                ) : (
+                </FlexContainer2>
+            ) : (
+                <FlexContainer>
+                    <Titulo>{props.titulo}</Titulo>
                     <Searchbar
                         onSubmit={props.onSubmit}
                         value={props.value}
                         onChange={props.onChange}
                         placeholder={props.placeholder}
                     />
-                )}
-            </FlexContainer>
+                </FlexContainer>
+            )}
+
             {props.tituloGame && <GameTitle>{props.tituloGame}</GameTitle>}
             {!props.grid ? props.children : <Grid width={props.width}>{props.children}</Grid>}
             {props.footer && <Footer />}

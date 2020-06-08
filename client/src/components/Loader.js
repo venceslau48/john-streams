@@ -9,6 +9,10 @@ const Container = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     animation: rotate 2s infinite linear;
+
+    @media (max-width: 56.25em) {
+        left: 40%;
+    }
 `
 
 const Circle1 = styled.div`
