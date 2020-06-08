@@ -6,7 +6,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 3px;
-    background-color: var(--color-bg);
+    background-color: var(--navbar-bg);
 `
 
 const StyledLink = styled(Link)`
@@ -68,7 +68,7 @@ const Game = ({ game, topGames, searchedGames, streams }) => {
                 </StyledLink>
             )}
             {streams && (
-                <StyledLink to={`/${game.channel._id}`}>
+                <StyledLink to={`/channel/${game.channel._id}`}>
                     <Poster src={game.preview.large} />
                     <Info>
                         <Name>{game.channel.display_name}</Name>

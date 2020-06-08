@@ -6,16 +6,18 @@ export const lightTheme = {
     primary: "#9416F6",
     secondary: "#0099FF",
     shadow_light: "rgba(0, 0, 0, 0.1)",
-    shadow_dark: "rgba(0, 0, 0, 0.25)"
+    shadow_dark: "rgba(0, 0, 0, 0.25)",
+    navbar_bg: "#fff"
 }
 
 export const darkTheme = {
     typo: "#eee",
     typo_light: "#fff",
     typo_dark: "#ddd",
-    bg: "#212121",
-    primary: "#9416F6",
+    bg: "#333",
+    primary: "#B741FF",
     secondary: "#0099FF",
     shadow_light: "rgba(0, 0, 0, 0.25)",
-    shadow_dark: "rgba(0, 0, 0, 0.35)"
+    shadow_dark: "rgba(0, 0, 0, 0.35)",
+    navbar_bg: "#212121"
 }

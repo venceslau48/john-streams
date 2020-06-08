@@ -8,6 +8,7 @@ import Layout from "../components/Layout"
 const StyledPlayer = styled.div`
     width: 100%;
     height: 80vh;
+    margin-bottom: 6rem;
 `
 
 const Player = props => {
@@ -35,6 +36,7 @@ const Player = props => {
             noSearch={true}
             onClickGoBack={history.goBack}
             tituloGame={stream.stream.game === undefined ? "" : `Playing ${stream.stream.game}`}
+            footer={!loading}
         >
             {loading === true || stream.stream.channel === undefined || stream.stream === null ? (
                 <Loader />

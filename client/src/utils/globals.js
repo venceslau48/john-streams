@@ -29,13 +29,14 @@ export default createGlobalStyle`
       --color-secondary: ${({ theme }) => theme.secondary};
       --shadow-light: ${({ theme }) => `0 0.3rem 0.5rem ${theme.shadow_light}`};
       --shadow-dark: ${({ theme }) => `0 0.3rem 0.5rem ${theme.shadow_dark}`};
+      --navbar-bg:${({ theme }) => theme.navbar_bg};
     }
 
     body {
       font-family: 'Nunito', sans-serif;
       font-weight: 400;
       line-height: 1.6;
-      background: ${({ theme }) => theme.bg};
+      background: var(--color-bg);
       overflow-x: hidden;
       transition: background-color 0.4s;
     }

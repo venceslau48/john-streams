@@ -4,14 +4,17 @@ import { Redirect } from "react-router-dom"
 import axios from "axios"
 import Game from "../components/Game"
 import Layout from "../components/Layout"
+import Loader from "../components/Loader"
 
 const Streams = props => {
     const [games, setGames] = useState({ streams: [] })
     const [search, setSearch] = useState("")
+    const [loading, setLoading] = useState(true)
     const [redirect, setRedirect] = useState(false)
 
     useEffect(() => {
         axios.get("/streams", { params: { game: props.match.params.game } }).then(res => {
+            setLoading(false)
             setGames({ streams: res.data.streams })
         })
     }, [])
@@ -38,10 +41,9 @@ const Streams = props => {
             goBack={true}
             onClickGoBack={history.goBack}
             tituloGame={props.match.params.game}
+            footer={!loading}
         >
-            {games.streams.map(game => (
-                <Game game={game} key={game.game._id} streams />
-            ))}
+            {loading ? <Loader /> : games.streams.map(game => <Game game={game} key={game.game._id} streams />)}
         </Layout>
     )
 }

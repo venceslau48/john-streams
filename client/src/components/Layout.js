@@ -1,11 +1,11 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import Searchbar from "../components/Searchbar"
+import Searchbar from "./Searchbar"
+import Footer from "./Footer"
 
 const Container = styled.div`
     grid-column: center-start/center-end;
     z-index: 10;
-    margin-bottom: 6rem;
     text-align: right;
 `
 
@@ -62,6 +62,7 @@ const Grid = styled.div`
     display: grid;
     grid-template-columns: ${props => props.width && `repeat(auto-fit, minmax(${props.width}, 1fr))`};
     gap: 2.5rem;
+    margin-bottom: 6rem;
 `
 
 const Layout = props => {
@@ -87,6 +88,7 @@ const Layout = props => {
             </FlexContainer>
             {props.tituloGame && <GameTitle>{props.tituloGame}</GameTitle>}
             {!props.grid ? props.children : <Grid width={props.width}>{props.children}</Grid>}
+            {props.footer && <Footer />}
         </Container>
     )
 }

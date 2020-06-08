@@ -11,6 +11,7 @@ const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
     gap: 2.5rem;
+    margin-bottom: 6rem;
 `
 
 const SearchGames = props => {
@@ -52,6 +53,7 @@ const SearchGames = props => {
             placeholder="Search games"
             goBack={true}
             onClickGoBack={history.goBack}
+            footer={!loading}
         >
             {loading === true || searchedGames.games === undefined || searchedGames.games === null ? (
                 <Loader />
