@@ -16,11 +16,13 @@ const Navigation = styled.nav`
     transition: background-color 0.4s;
 `
 
-const Brand = styled.h2`
+const Brand = styled(Link)`
     grid-column: center-start / span 1;
     font-size: 2.4rem;
     color: var(--color-primary);
     align-self: center;
+    text-decoration: none;
+    font-weight: 600;
 
     @media (max-width: 37.5em) {
         grid-column: full-start / center-start;
@@ -228,7 +230,7 @@ const NavLink = styled(Link)`
 const Navbar = props => {
     return (
         <Navigation>
-            <Brand>JohnWitch</Brand>
+            <Brand to="/">JohnWitch</Brand>
             <NavList>
                 <NavItem>
                     <NavLink to="/">Top Games</NavLink>
