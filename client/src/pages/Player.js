@@ -45,7 +45,7 @@ const Player = props => {
                 <StyledPlayer>
                     <iframe
                         // src={`https://player.twitch.tv/?channel=${stream.stream.channel.display_name}&parent=localhost`}
-                        src={`https://player.twitch.tv/?channel=${stream.stream.channel.display_name}&parent=https://john-streams.herokuapp.com/`}
+                        src={`https://player.twitch.tv/?channel=${stream.stream.channel.display_name}&parent=john-streams.herokuapp.com`}
                         height="100%"
                         width="100%"
                         frameBorder="0"
