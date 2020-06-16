@@ -14,7 +14,6 @@ const StyledPlayer = styled.div`
 const Player = props => {
     const [stream, setSream] = useState({ stream: {} })
     const [loading, setLoading] = useState(true)
-    const [myUrl, setMyUrl] = useState("john-streams.herokuapp.com")
 
     useEffect(() => {
         axios
@@ -46,7 +45,7 @@ const Player = props => {
                 <StyledPlayer>
                     <iframe
                         // src={`https://player.twitch.tv/?channel=${stream.stream.channel.display_name}&parent=localhost`}
-                        src={`https://player.twitch.tv/?channel=${stream.stream.channel.display_name}&parent=${myUrl}`}
+                        src={`https://player.twitch.tv/?channel=${stream.stream.channel.display_name}&parent=https://john-streams.herokuapp.com/`}
                         height="100%"
                         width="100%"
                         frameBorder="0"
