@@ -7,4 +7,4 @@
 Streams that are used through the Twitch api.
 Used for that job React and Styled Components.
 
-Developed by John Vences - copyright @ 2020
+Developed by [John Vences](https://github.com/venceslau48) - copyright @ 2020
